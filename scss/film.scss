@@ -1,0 +1,476 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 - 2018, OAF2E
+ * @license     http://opensource.org/licenses/MIT  MIT License
+ * @link        https://www.ioa.tw/
+ */
+
+@import "_oa";
+
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+html {
+  min-height: 100%;
+
+  body {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: rgba(90, 90, 90, 1.00);
+    text-align: center;
+    font-size: medium;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
+
+    // background: $mainBackgroundColor;
+    // background-image: $mainBackgroundImage;
+    background-color: white;
+    @include font-smoothing(antialiased);
+  }
+}
+
+$headerWebHeight: 60px;
+
+header {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(248, 248, 248, 1.00);
+  @include clearfix();
+
+  > * {
+    display: inline-block;
+    height: $headerWebHeight;
+    float: left;
+  }
+  .logo {
+    width: 240px;
+    > * {
+      float: left;
+    }
+    .pic {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin-top: calc( (#{$headerWebHeight} - 40px) / 2 );
+      margin-left: 50px;
+      background-color: rgba(116, 116, 116, 1.00);
+    }
+    .text {
+      display: inline-block;
+      height: $headerWebHeight;
+      line-height: $headerWebHeight;
+      margin-left: 10px;
+      color: rgba(125, 125, 125, 1.00);
+      font-size: 16px;
+    }
+  }
+  .search {
+    width: calc( 100% - 240px - 200px );
+
+    .dialog {
+      > * {
+        float: left;
+        margin: calc( ( #{$headerWebHeight} - 24px ) / 2 );
+      }
+      input[type="text"] {
+        width: 300px;
+        height: 24px;
+        float: left;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid rgba(217, 221, 221, 1.00);
+        font-size: 16px;
+        color: black;
+        margin-left: 0;
+
+        @include input-placeholder {
+          font-size: 16px;
+          font-weight: normal;
+          color: rgba(213, 216, 216, 1.00);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .icon-search {
+        display: inline-block;
+        color: rgba(208, 214, 214, 1.00);
+        font-size: 20px;
+        margin-right: 3px;
+      }
+    }
+  }
+  .identify {
+    width: 200px;
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      height: $headerWebHeight;
+      float: left;
+    }
+    .avatar {
+      width: 36px;
+
+      .pic {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        margin-top: calc( ( #{$headerWebHeight} - 36px ) / 2 );
+        background-color: gray;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .change_user {
+      position: relative;
+
+      .list {
+        position: absolute;
+        display: none;
+        width: 180px;
+        top: calc( #{$headerWebHeight} - 5px );
+        left: -50px;
+        background-color: rgba(237, 236, 237, 1.00);
+
+        @include border-radius(10px);
+
+        a {
+          display: block;
+          width: 100%;
+          height: 65px;
+          line-height: 65px;
+          text-align: left;
+          text-decoration: none;
+          color: rgba(116, 116, 116, 1.00);
+
+          span.pic {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: gray;
+            margin-top: calc( (65px - 30px) / 2 );
+            margin-right: 3px;
+            margin-left: 20px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &:after {
+            display: inline-block;
+            content: '';
+            width: calc( 100% - 20px );
+            height: 2px;
+            margin-left: 10px;
+            background-color: rgba(228, 227, 227, 1.00);
+          }
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+          &.new {
+            color: rgba(177, 177, 177, 1.00);
+          }
+          &.logout {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+
+      &:after {
+        padding-left: 5px;
+        display: inline-block;
+        height: $headerWebHeight;
+        line-height: $headerWebHeight;
+        font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+        content: attr(data-title) '\e901';
+        font-size: 16px;
+      }
+    }
+
+    &:hover {
+      .list {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+#player {
+  display: inline-block;
+  width: 100%;
+  height: 520px;
+  background-color: rgba(216, 216, 216, 1.00);
+}
+
+#container {
+  display: inline-block;
+  width: 100%;
+  max-width: 1440px;
+  padding-bottom: 50px;
+
+  > * {
+    display: inline-block;
+    float: left;
+  }
+  .left {
+    width: calc( 100% - 400px );
+    padding-left: 40px;
+    > h1 {
+      display: block;
+      text-align: left;
+      font-size: 24px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    > span {
+      display: block;
+      text-align: left;
+      font-size: 16px;
+      color: rgba(205, 205, 205, 1.00);
+    }
+
+    .owner {
+      display: block;
+      text-align: left;
+      margin-top: 20px;
+
+      .pic {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-color: gray;
+        @include border-radius(50px);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .name {
+        font-size: 18px;
+        line-height: 28px;
+        color: rgba(126, 126, 126, 1.00);
+      }
+    }
+
+    .detail {
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-top: 2px solid rgba(229, 228, 229, 1.00);
+      border-bottom: 2px solid rgba(229, 228, 229, 1.00);
+
+      .statisc {
+        position: relative;
+        display: block;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        span {
+          font-size: 18px;
+          color: rgba(203, 203, 203, 1.00);
+          margin-right: 50px;
+          &:after {
+            display: inline-block;
+            margin-left: 5px;
+            content: attr(data-value);
+          }
+          &:before {
+            font-size: 20px;
+            margin-right: 5px;
+          }
+        }
+
+        .share {
+          position: absolute;
+          display: inline-block;
+          top: 0;
+          right: 30px;
+          width: 92px;
+          height: 36px;
+          line-height: 36px;
+          text-align: center;
+          border: 2px solid rgba(220, 219, 220, 1.00);
+          color: rgba(204, 204, 204, 1.00);
+          @include border-radius(30px);
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .intro {
+        display: inline-block;
+        width: 100%;
+        max-width: 600px;
+        height: 150px;
+        line-height: 25px;
+        font-size: 16px;
+        color: rgba(179, 178, 179, 1.00);
+        overflow: hidden;
+      }
+    }
+    .message {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding-bottom: 100px;
+
+      > span {
+        display: inline-block;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+        &:after {
+          content: '(' attr(data-cnt) ')';
+          margin-left: 10px;
+          line-height: 28px;
+        }
+      }
+
+      .msg_box {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+
+        > * {
+          float: left;
+        }
+        .msg_left {
+          display: inline-block;
+          width: 50px;
+          .avatar {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: gray;
+            @include border-radius(50px);
+          }
+        }
+        .msg_right {
+          display: inline-block;
+          width: calc( 100% - 50px);
+          padding-bottom: 30px;
+          border-bottom: 2px solid rgba(229, 228, 229, 1.00);
+
+          .title {
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            .user {
+              font-size: 18px;
+              color: rgba(119, 119, 119, 1.00);
+            }
+            .time {
+              font-size: 16px;
+              color: rgba(192, 192, 192, 1.00);
+              margin-left: 10px;
+              &:after {
+                content: attr(data-title);
+              }
+            }
+          }
+
+          p {
+            color: rgba(166, 165, 166, 1.00);
+          }
+        }
+      }
+    }
+  }
+  .right {
+    width: 360px;
+    margin-left: 40px;
+    border-left: 2px solid rgba(229, 228, 229, 1.00);
+
+    .container {
+      display: inline-block;
+      width: 276px;
+      margin-left: 0px;
+      margin-top: 30px;
+
+      span.recommend {
+        display: block;
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 30px;
+        color: rgba(143, 143, 143, 1.00);
+      }
+      .box {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 30px;
+
+        .film {
+          display: inline-block;
+          width: 100%;
+          height: 156px;
+          background-color: gray;
+        }
+        b.title {
+          display: block;
+          margin: 10px 0 10px 0;
+          font-size: 18px;
+          text-align: left;
+          color: rgba(133, 133, 133, 1.00);
+        }
+
+        div.sub {
+          display: block;
+          text-align: left;
+
+          span {
+            font-size: 14px;
+            color: rgba(213, 213, 213, 1.00);
+          }
+          .time {
+            &:after {
+              content: attr(data-title);
+            }
+          }
+          .view {
+            &:before {
+              content: ' · ' attr(data-title)
+            }
+          }
+        }
+      }
+
+      .film_more {
+        display: inline-block;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        border: 2px solid rgba(211, 210, 211, 1.00);
+        color: rgba(201, 200, 201, 1.00);
+        text-align: center;
+        margin-top: 20px;
+        @include border-radius(30px);
+      }
+    }
+  }
+}
