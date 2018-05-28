@@ -39,3 +39,192 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+
+$headerWebHeight: 60px;
+header {
+  position: fixed;
+  display: inline-block;
+  width: 100%;
+  @include opacity(0.9);
+  @include background-image(linear-gradient(130deg, rgba(32, 62, 60, 1.00), rgba(32, 62, 59, 1.00) 50%, rgba(30, 61, 65, 1.00)));
+  text-align: center;
+  z-index: 2;
+
+  .container {
+    display: inline-block;
+    width: 100%;
+    max-width: 1200px;
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      float: left;
+      height: $headerWebHeight;
+    }
+    .logo {
+      width: 230px;
+      > * {
+        display: inline-block;
+        float: left;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+        margin-top: calc( ( #{$headerWebHeight} - 40px ) / 2 );
+        margin-left: calc( ( #{$headerWebHeight} - 40px ) / 2 );
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .title {
+        font-size: 18px;
+        line-height: $headerWebHeight;
+        color: rgba(255, 255, 255, 1.00);
+        margin-left: 10px;
+      }
+    }
+
+    .menu {
+      width: calc( 100% - 230px - 80px );
+      a {
+        display: inline-block;
+        float: left;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: $headerWebHeight;
+        color: rgba(255, 255, 255, 1.00);
+        margin-right: 50px;
+      }
+    }
+
+    .icon-login {
+      width: 80px;
+      line-height: $headerWebHeight;
+      text-decoration: none;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 1.00);
+      &:before {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.guide {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+
+  > * {
+    display: inline-block;
+    width: 100%;
+  }
+  .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .mask {
+    position: relative;
+    height: 950px;
+    text-align: center;
+
+    @include opacity(0.83);
+    @include background-image(linear-gradient(130deg, #4fc9b6, #44c3ce 50%, #009dd7));
+    @include clearfix();
+
+    .center {
+      display: inline-block;
+      max-width: 1200px;
+      width: 100%;
+      height: 100%;
+
+      > * {
+        display: inline-block;
+        float: left;
+        height: 100%;
+      }
+      .left {
+        position: relative;
+        width: 100%;
+        max-width: 601px;
+
+        .guide_pic {
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          height: 776px;
+          left: -90px;
+          bottom: 0;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        width: calc( 100% - 601px );
+        text-align: left;
+        h1 {
+          font-size: 50px;
+          color : white;
+          line-height: 20px;
+          margin-top: 500px;
+        }
+        .desc {
+          font-size: 18px;
+          color: white;
+        }
+        button {
+          display: inline-block;
+          width: 205px;
+          height: 60px;
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+          background: transparent;
+          border: 2px solid white;
+          margin-top: 60px;
+          @include border-radius(30px);
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .circle_btn {
+          position: absolute;
+          display: inline-block;
+          top: 100px;
+          right: 5px;
+          .icon-facebook {
+            margin-bottom: 30px;
+            &:before {
+              font-size: 50px;
+              color: white;
+              border: 2px solid white;
+              @include border-radius(50px);
+            }
+          }
+          .icon-mail {
+            &:before {
+              font-size: 50px;
+              color: white;
+              border: 2px solid white;
+              @include border-radius(50px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
