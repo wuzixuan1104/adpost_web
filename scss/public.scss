@@ -214,6 +214,9 @@ header {
               border: 2px solid white;
               @include border-radius(50px);
             }
+            &:hover {
+              cursor: pointer;
+            }
           }
           .icon-mail {
             &:before {
@@ -221,6 +224,9 @@ header {
               color: white;
               border: 2px solid white;
               @include border-radius(50px);
+            }
+            &:hover {
+              cursor: pointer;
             }
           }
         }
