@@ -6,6 +6,33 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-cheveron-down:before {
+  content: "\e913";
+}
+.icon-menu:before {
+  content: "\e907";
+}
+.icon-red:before {
+  content: "\e905";
+}
+.icon-like:before {
+  content: "\e906";
+}
+.icon-dropdown:before {
+  content: "\e908";
+}
+.icon-facebook2:before {
+  content: "\e909";
+}
+.icon-mail2:before {
+  content: "\e90a";
+}
+.icon-search:before {
+  content: "\e912";
+}
+.icon-notice:before {
+  content: "\e90b";
+}
 .icon-camera:before {
   content: "\e90c";
 }
@@ -23,7 +50,4 @@
 }
 .icon-mail:before {
   content: "\e911";
-}
-.icon-menu:before {
-  content: "\e902";
 }

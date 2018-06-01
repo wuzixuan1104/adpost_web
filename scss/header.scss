@@ -39,3 +39,234 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+
+header {
+  position: fixed;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1.00);
+  z-index: 15;
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
+
+  .container {
+    display: inline-block;
+    width: 100%;
+    max-width: 1440px;
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      float: left;
+      height: $headerWebHeight;
+    }
+    .logo {
+      width: 150px;
+
+      .pic {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-top: calc( (#{$headerWebHeight} - 40px ) / 2 );
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .title {
+        display: inline-block;
+        font-size: 18px;
+        color: #333333;
+        line-height: $headerWebHeight;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .search {
+      width: calc( 100% - 150px - 250px );
+      .bar {
+        display: inline-block;
+        margin-top: calc( (#{$headerWebHeight} - 35px) / 2 );
+        margin-left: 50px;
+        float: left;
+        > * {
+          display: inline-block;
+          float: left;
+        }
+
+        &.icon-search {
+          position: relative;
+          &:before {
+            position: absolute;
+            top: 6px;
+            left: 33px;
+            color: #cfd6d6;
+            font-size: 22px;
+          }
+        }
+        input[type="text"] {
+          width: 240px;
+          height: 35px;
+          border: none;
+          background-color: rgba(242, 242, 242, 0.5);
+          font-size: 16px;
+          margin-left: 20px;
+          padding-left: 40px;
+          &:focus {
+            outline: none;
+          }
+          @include border-radius(30px);
+          @include input-placeholder {
+            font-size: 16px;
+            font-weight: normal;
+            color: #b5bcbc;
+            left: 30px;
+          }
+        }
+
+
+      }
+    }
+
+    .rightHeader {
+      width: 250px;
+      > * {
+        display: inline-block;
+        float: left;
+      }
+      .change_user {
+        position: relative;
+        .username {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333333;
+          line-height: $headerWebHeight;
+          &:after {
+            display: inline-block;
+            font-family: "icomoon";
+            content: "\e913";
+            margin-left: 30px;
+            color: #333333;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+        }
+
+        .list {
+          position: absolute;
+          display: none;
+          &.show {
+            display: inline-block;
+          }
+          top: calc( #{$headerWebHeight} - 5px );
+          left: -30px;
+          background-color: rgba(237, 236, 237, 1.00);
+          @include border-radius(10px);
+
+          a {
+            display: block;
+            width: 180px;
+            height: 65px;
+            text-align: left;
+            text-decoration: none;
+            color: #8a8a8a;
+            font-size: 16px;
+
+            &:after {
+              display: inline-block;
+              content: '';
+              background-color: rgba(231, 231, 231, 1.00);
+              width: 160px;
+              height: 2px;
+              margin-left: calc( (180px - 160px) / 2 );
+            }
+
+            &:last-child {
+              &:after {
+                display: none;
+              }
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            > * {
+              display: inline-block;
+              float: left;
+            }
+            .pic {
+              width: 30px;
+              height: 30px;
+              margin-top: calc( (65px - 30px) / 2 );
+              margin-left: 15px;
+              margin-right: 15px;
+
+              img {
+                width: 100%;
+                height: 100%;
+                @include border-radius(50px);
+              }
+            }
+            span {
+              height: 65px;
+              line-height: 65px;
+
+              &.new {
+                color: #bfbfbf;
+              }
+
+              &.logout {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+      .avatar {
+        width: 36px;
+        height: 36px;
+        margin-top: calc( (#{$headerWebHeight} - 34px ) / 2 );
+        margin-left: 30px;
+        border: 1px solid rgba(86, 195, 206, 1.00);
+        padding: 2px;
+        @include border-radius(50px);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          @include border-radius(50px);
+        }
+      }
+
+      .icon-notice {
+        margin-top: calc( (#{$headerWebHeight} - 28px) / 2 );
+        margin-left: 30px;
+        &:before {
+          font-size: 28px;
+          color: rgba(194, 202, 202, 1.00);
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+#layer {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: $headerWebHeight;
+  left: 0;
+}

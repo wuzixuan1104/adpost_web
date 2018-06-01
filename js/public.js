@@ -6,13 +6,13 @@
  */
 
 $(function () {
-  $('.icon-menu').click(function() {
-    $('.sidemenu').toggleClass('show');
-  });
-  $(document).not('.icon-menu', '.sidemenu').click(function() {
-    if( $('.sidemenu').hasClass('show') ) {
-      $('.sidemenu').toggleClass('show');
-    }
-    // $('.sidemenu').hasClass('show').toggleClass('show');
-  });
+  // $('.icon-menu').click(function() {
+  //   $('.sidemenu').toggleClass('show');
+  // });
+  // $(document).not('.icon-menu', '.sidemenu').click(function() {
+  //   if( $('.sidemenu').hasClass('show') ) {
+  //     $('.sidemenu').toggleClass('show');
+  //   }
+  //   // $('.sidemenu').hasClass('show').toggleClass('show');
+  // });
 });
