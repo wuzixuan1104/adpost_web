@@ -9,6 +9,12 @@ $(function () {
   $('.change_user').click(function() {
     $(this).find('.list').toggleClass('show');
     $('.outer-layer').addClass('show');
+
+    $('.inner-layer').addClass('show');
+    $('.inner-layer').click(function() {
+      $('.change_user').find(".list.show").removeClass('show');
+      $(this).toggleClass('show');
+    });
   });
 
   $('.outer-layer').click(function() {
@@ -26,13 +32,19 @@ $(function () {
     $('.change_user').click(function() {
       var list = $(this).find('.list');
       list.addClass('show');
-      $('.inner-layer').toggleClass('show');
+      $('.inner-layer').addClass('show');
       $('.inner-layer').click(function() {
         list.removeClass('show');
         $(this).toggleClass('show');
       });
+
+      $('.icon-close').click( function() {
+        $('.sidemenu').removeClass('show');
+        list.removeClass('show');
+      });
     });
   });
+
 
 
 });

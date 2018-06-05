@@ -6,11 +6,17 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-cheveron-down:before {
-  content: "\e913";
+.icon-close:before {
+  content: "\e902";
 }
-.icon-menu:before {
+.icon-profile-drop:before {
+  content: "\e910";
+}
+.icon-view:before {
   content: "\e907";
+}
+.icon-dropdown:before {
+  content: "\e900";
 }
 .icon-red:before {
   content: "\e905";
@@ -18,7 +24,7 @@
 .icon-like:before {
   content: "\e906";
 }
-.icon-dropdown:before {
+.icon-dropdown2:before {
   content: "\e908";
 }
 .icon-facebook2:before {
@@ -46,8 +52,17 @@
   content: "\e90f";
 }
 .icon-facebook:before {
-  content: "\e910";
+  content: "\e911";
 }
 .icon-mail:before {
-  content: "\e911";
+  content: "\e913";
+}
+.icon-cheveron-down:before {
+  content: "\e915";
+}
+.icon-menu:before {
+  content: "\e914";
+}
+.icon-cheveron-down2:before {
+  content: "\e916";
 }
