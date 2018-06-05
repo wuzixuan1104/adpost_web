@@ -15,16 +15,38 @@
   top: $headerWebHeight;
   left: 0;
   background-color: rgba(255, 255, 255, 1.00);
-
+  z-index: 14;
+  @include range_width(0, 769px) {
+    display: none;
+    &.show {
+      display: inline-block;
+    }
+  };
   .container {
+    position: relative;
     display: inline-block;
     margin-left: 50px;
 
+    .inner-layer {
+      position: fixed;
+      display: none;
+      top: $headerWebHeight;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      z-index: 2;
+      @include range_width(0, 769px) {
+        &.show {
+          display: inline-block;
+        }
+      };
+    }
     .change_user {
       position: relative;
       margin-top: 80px;
       margin-bottom: 30px;
       margin-left: -50px;
+      z-index: 5;
 
       .username {
         font-size: 16px;

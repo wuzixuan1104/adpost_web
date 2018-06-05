@@ -1,0 +1,149 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 - 2018, OAF2E
+ * @license     http://opensource.org/licenses/MIT  MIT License
+ * @link        https://www.ioa.tw/
+ */
+
+@import "_oa";
+
+.main_container {
+  display: inline-block;
+  width: calc(100% - 200px);
+  margin-left: 200px;
+  background-color: white;
+
+  .guide {
+    display: inline-block;
+    height: 400px;
+    width: 100%;
+    margin-top: $headerWebHeight;
+    background-color: rgba(191, 190, 191, 1.00);
+
+    h1 {
+      font-size: 36px;
+      color: #ffffff;
+      margin-top: 150px;
+    }
+
+    button {
+      width: 200px;
+      height: 50px;
+      background-color: #ffffff;
+      color: black;
+      text-align: center;
+      line-height: 50px;
+      font-size: 18px;
+      @include border-radius(30px);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .hot_list {
+    display: inline-block;
+    width: 100%;
+    max-width: 1068px;
+    margin-top: 50px;
+
+    .title {
+      display: block;
+      text-align: left;
+      font-size: 22px;
+      color: #b5bcbc;
+      margin-bottom: 50px;
+    }
+    .boxes {
+      display: inline-block;
+      width: 100%;
+      @include clearfix();
+      > * {
+        display: inline-block;
+        float: left;
+      }
+
+      .box {
+        width: 240px;
+        height: 303px;
+        background-color: pink;
+        margin-right: 36px;
+        margin-bottom: 50px;
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+        > * {
+          display: inline-block;
+        }
+        .top {
+          position: relative;
+          width: 100%;
+          height: 45px;
+
+          > * {
+            display: inline-block;
+            float: left;
+          }
+          .pics {
+            margin-top: calc( (45px - 40px) / 2);
+            > * {
+              float: left;
+            }
+            .big {
+              position: relative;
+              width: 30px;
+              height: 30px;
+              z-index: 1;
+              overflow: hidden;
+              @include border-radius(50px);
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .small {
+              position: relative;
+              width: 25px;
+              height: 25px;
+              margin-left: -5px;
+              margin-top: 5px;
+              z-index: 2;
+              overflow: hidden;
+              @include border-radius(50px);
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          .name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333333;
+            line-height: 45px;
+            margin-left: 10px;
+          }
+          .time {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 14px;
+            color: #b5bcbc;
+            line-height: 45px;
+          }
+          .image {
+            display: inline-block;
+            width: 240px;
+            height: 140px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
